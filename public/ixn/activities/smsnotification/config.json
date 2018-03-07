@@ -21,7 +21,7 @@
       "outArguments": [
         { "exitoso":"boolean" }
       ],
-      "url": "https://baz-notification-sms-dev.herokuapp.com/ixn/activities/smsnotification/execute/",
+      "url": "https://baz-sms-notification-de.herokuapp.com/ixn/activities/smsnotification/execute/",
       "verb": "POST",
       "body": "",
       "header": "",
@@ -34,19 +34,19 @@
     "applicationExtensionKey": "7da896e8-62a1-47b3-9c7c-d56913f75839",
     "defaults": { "priority": "4"},
     "save": {
-      "url": "https://baz-notification-sms-dev.herokuapp.com/ixn/activities/smsnotification/save/",
+      "url": "https://baz-sms-notification-de.herokuapp.com/ixn/activities/smsnotification/save/",
       "body": "",
       "verb": "POST",
       "useJwt": false
     },
     "publish": {
-      "url": "https://baz-notification-sms-dev.herokuapp.com/ixn/activities/smsnotification/publish/",
+      "url": "https://baz-sms-notification-de.herokuapp.com/ixn/activities/smsnotification/publish/",
       "verb": "POST",
       "body": "",
       "useJwt": false
     },
     "validate": {
-      "url": "https://baz-notification-sms-dev.herokuapp.com/ixn/activities/smsnotification/validate/",
+      "url": "https://baz-sms-notification-de.herokuapp.com/ixn/activities/smsnotification/validate/",
       "verb": "POST",
       "body": "",
       "useJwt": false
@@ -69,7 +69,7 @@
     }
   },
   "edit": {
-    "url": "https://baz-notification-sms-dev.herokuapp.com/ixn/activities/smsnotification/",
+    "url": "https://baz-sms-notification-de.herokuapp.com/ixn/activities/smsnotification/",
     "height": 400,
     "width": 500
   }
