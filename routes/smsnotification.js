@@ -115,6 +115,9 @@ exports.execute = function( req, res ) {
             params[key] = aArgs[i][key];
         }
     }
+
+    console.log(aArgs);
+
     if(!params['phone'] || !params['message'])
     {
         res.send(500,{message: "Parameters are incomplete."});
