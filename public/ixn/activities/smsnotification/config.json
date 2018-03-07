@@ -18,9 +18,7 @@
         { "phone": "{{Contact.Attribute.CanalSMS.IdNumeroTel}}"},
         { "message": "{{Contact.Attribute.CanalSMS.mensaje}}"}
       ],
-      "outArguments": [
-        { "exitoso":"boolean" }
-      ],
+      "outArguments": [],
       "url": "https://baz-sms-notification-dev.herokuapp.com/ixn/activities/smsnotification/execute/",
       "verb": "POST",
       "body": "",
