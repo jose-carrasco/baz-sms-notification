@@ -15,8 +15,6 @@ define( function( require ) {
 
     connection.on('initActivity', function(payload) {
 
-        var notificationId;
-
         if (payload) {
             toJbPayload = payload;
             console.log('payload',payload);
@@ -29,8 +27,6 @@ define( function( require ) {
 					oArgs[key] = aArgs[i][key]; 
 				}
 			}
-			//oArgs.priority will contain a value if this activity has already been configured:
-            notificationId = oArgs.idMensaje || toJbPayload['configurationArguments'].defaults.notificationId;
         }
         
 		$.get( "/version", function( data ) {
@@ -87,7 +83,6 @@ define( function( require ) {
                 break;
             case 2:
                 $('#step2').show();
-                $('#notificationIdLabel').html(getNotificationId());
                 connection.trigger('updateButton', { button: 'back', visible: true });
                 connection.trigger('updateButton', { button: 'next', text: 'done', visible: true });
                 break;
@@ -97,18 +92,11 @@ define( function( require ) {
         }
     };
 
-    function getNotificationId() {
-        return $('#notificationId').val();
-    };
-
     function save() {
 
         // toJbPayload is initialized on populateFields above.  Journey Builder sends an initial payload with defaults
         // set by this activity's config.json file.  Any property may be overridden as desired.
         //toJbPayload.name = "my activity";
-        var notificationId = getNotificationId();
-
-        toJbPayload['arguments'].execute.inArguments.push({"notificationId": notificationId});
 
         console.log(toJbPayload['arguments']);
 		/*
