@@ -29,7 +29,7 @@
     }
   },
   "configurationArguments": {
-    "applicationExtensionKey": "7da896e8-62a1-47b3-9c7c-d56913f75839",
+    "applicationExtensionKey": "68d5971a-8cc1-4326-af28-266795858b36",
     "defaults": { "priority": "4"},
     "save": {
       "url": "https://baz-sms-notification-dev.herokuapp.com/ixn/activities/smsnotification/save/",
