@@ -15,8 +15,7 @@
   "arguments": {
     "execute": {
       "inArguments":[
-        { "phone": "{{Contact.Attribute.CanalSMS2.IdNumeroTel}}"},
-        { "message": "{{Contact.Attribute.CanalSMS2.mensaje}}"}
+        { "phone": "{{Contact.Attribute.ClientesSMS.IdNumeroTel}}"}
       ],
       "outArguments": [],
       "url": "https://baz-sms-notification-dev.herokuapp.com/ixn/activities/smsnotification/execute/",

@@ -14,6 +14,7 @@ define( function( require ) {
     $(window).ready(onRender);
 
     connection.on('initActivity', function(payload) {
+        var message;
 
         if (payload) {
             toJbPayload = payload;
@@ -27,8 +28,10 @@ define( function( require ) {
 					oArgs[key] = aArgs[i][key]; 
 				}
 			}
+            message = oArgs.message || toJbPayload['configurationArguments'].defaults.message;
         }
-        
+
+
 		$.get( "/version", function( data ) {
 			$('#version').html('Version: ' + data.version);
 		});                
@@ -83,6 +86,7 @@ define( function( require ) {
                 break;
             case 2:
                 $('#step2').show();
+                $('#showMessage').html(getMessage());
                 connection.trigger('updateButton', { button: 'back', visible: true });
                 connection.trigger('updateButton', { button: 'next', text: 'done', visible: true });
                 break;
@@ -92,12 +96,16 @@ define( function( require ) {
         }
     };
 
+    function getMessage() {
+        return $('#message').val();
+    };
+
     function save() {
 
         // toJbPayload is initialized on populateFields above.  Journey Builder sends an initial payload with defaults
         // set by this activity's config.json file.  Any property may be overridden as desired.
         //toJbPayload.name = "my activity";
-
+        var message = getMessage();
         console.log(toJbPayload['arguments']);
 		/*
         toJbPayload['metaData'].things = 'stuff';
@@ -106,7 +114,7 @@ define( function( require ) {
         toJbPayload['configurationArguments'].partnerActivityId = '49198498';
         toJbPayload['configurationArguments'].myConfiguration = 'configuration coming from iframe';
 		*/
-		
+		toJbPayload['arguments'].execute.inArguments.push({"message": message});
 		toJbPayload.metaData.isConfigured = true;  //this is required by JB to set the activity as Configured.
         connection.trigger('updateActivity', toJbPayload);
     }; 
