@@ -90,8 +90,8 @@ function sendSMSNotification(res, params) {
             return rp.post(options);
         })
         .then(function (body) {
-            console.log("Body: " + body);
-            if (body.reference)
+            console.log("Body: " + JSON.stringify(body));
+            if (body.code == 'BUS-0001')
                 res.send(200, body);
             else
                 res.send(500, body);
